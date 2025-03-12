@@ -16,6 +16,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://oliver.sautisalama.org"),
   title: "Oliver Wainaina | Software Engineer",
   description:
     "Portfolio of Oliver Wainaina - Software Engineer specializing in web, mobile, and IoT applications with a focus on innovation for community development.",
