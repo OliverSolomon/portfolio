@@ -27,9 +27,12 @@ import {
   FaHandPaper,
   FaJava,
   FaAws,
+  FaLinkedin,
+  FaGithub,
 } from "react-icons/fa";
 
 import { MdDeviceHub } from "react-icons/md";
+import { FaXTwitter } from "react-icons/fa6";
 
 interface ProjectCardProps {
   number: string;
@@ -49,7 +52,6 @@ const ProjectCard = ({
   description,
   technologies,
   websiteUrl,
-  projectUrl,
   imageSrc,
 }: ProjectCardProps) => {
   return (
@@ -102,7 +104,7 @@ const ProjectCard = ({
           )}
 
           <Link
-            href={projectUrl}
+            href={websiteUrl}
             className="px-4 py-2 border border-black rounded-full text-sm font-['Times New Roman'] hover:bg-black hover:text-white transition-colors"
             target="_blank"
           >
@@ -207,7 +209,7 @@ export default function Home() {
               Get in Touch
             </Link>
             <Link
-              href="/resume.pdf"
+              href="https://docs.google.com/document/d/1zUHarjm9ktrOpnMlwR2aWcku3f3nBdIBYqbdm-MwEpE/edit?usp=sharing"
               className="px-8 py-4 bg-black text-white rounded-full text-lg font-['Times New Roman'] hover:bg-amber-600 transition-colors"
               target="_blank"
             >
@@ -267,31 +269,43 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Social Media Circles */}
-          <div className="absolute left-[-30px] top-1/4 flex flex-col gap-4">
-            <Link
-              href="https://www.instagram.com/oliverwainaina"
-              className="w-12 h-12 bg-white border border-gray-200 rounded-full flex items-center justify-center text-xs shadow-md hover:bg-gray-100 transition-colors"
+          {/* Social Media Circles - positioned to create curved edge effect */}
+          <div className="absolute left-[-30px] top-[200px] flex flex-col gap-4 z-10">
+            {/* LinkedIn icon */}
+            <a
+              href="https://www.linkedin.com/in/oliver-s-wainaina/"
               target="_blank"
+              className="w-14 h-14 bg-[#f8f7f3] rounded-full flex items-center justify-center hover:border-gray-300 transition-all duration-300 group"
             >
-              <span className="font-bold">ig</span>
-            </Link>
+              <FaLinkedin
+                size={20}
+                className="text-black group-hover:scale-110 transition-all duration-300"
+              />
+            </a>
 
-            <Link
-              href="https://www.facebook.com/oliverwainaina"
-              className="w-12 h-12 bg-white border border-gray-200 rounded-full flex items-center justify-center text-xs shadow-md hover:bg-gray-100 transition-colors"
+            {/* Github icon */}
+            <a
+              href="https://github.com/oliversolomon"
               target="_blank"
+              className="w-14 h-14 bg-[#f8f7f3] rounded-full flex items-center justify-center  hover:border-gray-300 transition-all duration-300 group"
             >
-              <span className="font-bold">fb</span>
-            </Link>
+              <FaGithub
+                size={20}
+                className="text-black group-hover:scale-110 transition-all duration-300"
+              />
+            </a>
 
-            <Link
-              href="https://twitter.com/oliverwainaina"
-              className="w-12 h-12 bg-white border border-gray-200 rounded-full flex items-center justify-center text-xs shadow-md hover:bg-gray-100 transition-colors"
+            {/* X (Twitter) icon */}
+            <a
+              href="https://x.com/oliversolomon10"
               target="_blank"
+              className="w-14 h-14 bg-[#f8f7f3] rounded-full flex items-center justify-center  hover:border-gray-300 transition-all duration-300 group"
             >
-              <span className="font-bold">x</span>
-            </Link>
+              <FaXTwitter
+                size={20}
+                className="text-black group-hover:scale-110 transition-all duration-300"
+              />
+            </a>
           </div>
 
           {/* Stats Indicator */}
@@ -318,7 +332,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="bg-[#171622] text-white py-20 px-6">
+      <section className="bg-[#171622] text-white py-20 px-6" id="about">
         <h2 className="text-8xl font-bold mb-20 font-['Times New Roman']">
           About <span className="text-amber-400">.</span> About{" "}
           <span className="text-amber-400">.</span> About{" "}
@@ -348,7 +362,7 @@ export default function Home() {
       </section>
 
       {/* Technical Skills Section */}
-      <section className="py-12 px-6 bg-[#171622] text-white">
+      <section className="pb-12 px-6 bg-[#171622] text-white" id="skills">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-[150px] font-bold mb-16 font-['Times New Roman'] opacity-90 leading-none">
             toolkit<span className="text-amber-400">.</span>
@@ -795,7 +809,7 @@ export default function Home() {
             <div className="relative">
               <div className="absolute inset-0 bg-amber-400 rounded-full blur-xl opacity-20"></div>
               <Link
-                href="/resume.pdf"
+                href="https://docs.google.com/document/d/1zUHarjm9ktrOpnMlwR2aWcku3f3nBdIBYqbdm-MwEpE/edit?usp=sharing"
                 className="relative px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/30 rounded-full text-lg font-['Times New Roman'] text-white hover:bg-white hover:text-[#171622] transition-colors"
                 target="_blank"
               >
@@ -807,7 +821,7 @@ export default function Home() {
       </section>
 
       {/* Work Experience Section */}
-      <section className="py-20 px-6 bg-[#f8f7f3]">
+      <section className="py-20 px-6 bg-[#f8f7f3]" id="experience">
         <h2 className="text-8xl font-bold mb-10 font-['Times New Roman'] opacity-90">
           experience <span className="text-amber-400">.</span> experience{" "}
           <span className="text-amber-400">.</span> experience
@@ -982,7 +996,10 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section className="py-20 px-6 bg-gradient-to-br from-[#f9f4e8] to-[#f5efe0]">
+      <section
+        className="py-20 px-6 bg-gradient-to-br from-[#f9f4e8] to-[#f5efe0]"
+        id="projects"
+      >
         <h2 className="text-8xl font-bold mb-20 font-['Times New Roman'] opacity-90">
           projects <span className="text-amber-400">.</span> projects{" "}
           <span className="text-amber-400">.</span> projects{" "}
@@ -1018,7 +1035,7 @@ export default function Home() {
             subtitle="Smart Irrigation Systems"
             description="Designed and implemented smart irrigation systems that reduce water usage while improving crop yields through IoT technology."
             technologies={["IoT", "Python", "Raspberry Pi", "ESP32"]}
-            websiteUrl=""
+            websiteUrl="https://embed.co.ke"
             projectUrl="/projects/agritech"
             imageSrc="/plants.jpg"
           />
@@ -1047,7 +1064,7 @@ export default function Home() {
       </section>
 
       {/* Awards Section */}
-      <section className="py-20 px-6 bg-[#171622] text-white">
+      <section className="py-20 px-6 bg-[#171622] text-white" id="awards">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-8xl font-bold mb-16 font-['Times New Roman'] opacity-90 leading-none ml-[-400px]">
             awards<span className="text-amber-400"> . </span> awards
@@ -1212,7 +1229,7 @@ export default function Home() {
       </section>
 
       {/* Community Involvement Section */}
-      <section className="py-20 px-6 bg-[#f8f7f3]">
+      <section className="py-20 px-6 bg-[#f8f7f3]" id="community">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-8xl font-bold mb-16 font-['Times New Roman'] opacity-90 leading-none  ml-[-400px]">
             community<span className="text-amber-400"> . </span>
@@ -1245,12 +1262,6 @@ export default function Home() {
                   <span className="text-sm font-['Times New Roman'] text-gray-500">
                     2021-2024
                   </span>
-                  <Link
-                    href="#"
-                    className="px-4 py-2 border border-black rounded-full text-sm font-['Times New Roman'] hover:bg-black hover:text-white transition-colors"
-                  >
-                    View Gallery
-                  </Link>
                 </div>
               </div>
             </div>
@@ -1280,12 +1291,6 @@ export default function Home() {
                   <span className="text-sm font-['Times New Roman'] text-gray-500">
                     2022-2023
                   </span>
-                  <Link
-                    href="#"
-                    className="px-4 py-2 border border-black rounded-full text-sm font-['Times New Roman'] hover:bg-black hover:text-white transition-colors"
-                  >
-                    View Gallery
-                  </Link>
                 </div>
               </div>
             </div>
@@ -1315,12 +1320,6 @@ export default function Home() {
                   <span className="text-sm font-['Times New Roman'] text-gray-500">
                     2023-Present
                   </span>
-                  <Link
-                    href="#"
-                    className="px-4 py-2 border border-black rounded-full text-sm font-['Times New Roman'] hover:bg-black hover:text-white transition-colors"
-                  >
-                    View Gallery
-                  </Link>
                 </div>
               </div>
             </div>
@@ -1350,12 +1349,6 @@ export default function Home() {
                   <span className="text-sm font-['Times New Roman'] text-gray-500">
                     2022-2023
                   </span>
-                  <Link
-                    href="#"
-                    className="px-4 py-2 border border-black rounded-full text-sm font-['Times New Roman'] hover:bg-black hover:text-white transition-colors"
-                  >
-                    View Gallery
-                  </Link>
                 </div>
               </div>
             </div>
@@ -1401,13 +1394,13 @@ export default function Home() {
             <Link href="#awards" className="text-sm font-['Times New Roman']">
               Awards
             </Link>
-            <Link href="/contact" className="text-sm font-['Times New Roman']">
+            <Link href="#" className="text-sm font-['Times New Roman']">
               Contact
             </Link>
           </div>
         </div>
         <div className="mt-4 text-center text-sm font-['Times New Roman']">
-          <p>Email: oliverwai9na@gmail.com | Phone: +254 742 949 664</p>
+          <p>Email: oliverwai9na@gmail.com </p>
           <p>
             <a
               href="https://www.linkedin.com/in/oliverwainaina"
