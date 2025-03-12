@@ -119,9 +119,9 @@ const ProjectCard = ({
 // Back to server component
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#f8f7f3] text-black font-['Times New Roman']">
+    <div className="min-h-screen bg-[#f8f7f3] text-black font-['Times New Roman'] snap-y snap-mandatory overflow-y-scroll h-screen">
       {/* Navigation */}
-      <nav className="flex justify-between items-center py-6 px-10">
+      <nav className="flex justify-between items-center py-6 px-10 sticky top-0 z-50 bg-[#f8f7f3]/80 backdrop-blur-sm">
         {/* Logo */}
         <div className="flex items-center gap-1">
           <div className="w-4 h-4 bg-black rounded-full"></div>
@@ -184,7 +184,10 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="flex align-center justify-around px-10 pt-10 pb-20">
+      <section
+        className="flex align-center justify-around px-10 pt-30 pb-20 snap-start"
+        id="home"
+      >
         <div className="w-1/2 pr-10">
           <h1 className="text-[120px] font-bold leading-[0.9] tracking-tight font-['Times New Roman']">
             software
@@ -332,7 +335,10 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="bg-[#171622] text-white py-20 px-6" id="about">
+      <section
+        className="bg-[#171622] text-white py-20 px-6 snap-end"
+        id="about"
+      >
         <h2 className="text-8xl font-bold mb-20 font-['Times New Roman']">
           About <span className="text-amber-400">.</span> About{" "}
           <span className="text-amber-400">.</span> About{" "}
@@ -362,7 +368,10 @@ export default function Home() {
       </section>
 
       {/* Technical Skills Section */}
-      <section className="pb-12 px-6 bg-[#171622] text-white" id="skills">
+      <section
+        className="px-6 bg-[#171622] text-white snap-start pt-20 pb-60"
+        id="skills"
+      >
         <div className="max-w-7xl mx-auto">
           <h2 className="text-[150px] font-bold mb-16 font-['Times New Roman'] opacity-90 leading-none">
             toolkit<span className="text-amber-400">.</span>
@@ -821,7 +830,10 @@ export default function Home() {
       </section>
 
       {/* Work Experience Section */}
-      <section className="py-20 px-6 bg-[#f8f7f3]" id="experience">
+      <section
+        className="pt-25 pb-60 px-6 bg-[#f8f7f3] min-h-screen snap-start"
+        id="experience"
+      >
         <h2 className="text-8xl font-bold mb-10 font-['Times New Roman'] opacity-90">
           experience <span className="text-amber-400">.</span> experience{" "}
           <span className="text-amber-400">.</span> experience
@@ -997,7 +1009,7 @@ export default function Home() {
 
       {/* Projects Section */}
       <section
-        className="py-20 px-6 bg-gradient-to-br from-[#f9f4e8] to-[#f5efe0]"
+        className="pt-25 pb-60 px-6 bg-gradient-to-br from-[#f9f4e8] to-[#f5efe0] min-h-screen snap-start"
         id="projects"
       >
         <h2 className="text-8xl font-bold mb-20 font-['Times New Roman'] opacity-90">
@@ -1064,7 +1076,10 @@ export default function Home() {
       </section>
 
       {/* Awards Section */}
-      <section className="py-20 px-6 bg-[#171622] text-white" id="awards">
+      <section
+        className="pt-25 pb-60 px-6 bg-[#171622] text-white min-h-screen snap-start"
+        id="awards"
+      >
         <div className="max-w-7xl mx-auto">
           <h2 className="text-8xl font-bold mb-16 font-['Times New Roman'] opacity-90 leading-none ml-[-400px]">
             awards<span className="text-amber-400"> . </span> awards
@@ -1229,7 +1244,10 @@ export default function Home() {
       </section>
 
       {/* Community Involvement Section */}
-      <section className="py-20 px-6 bg-[#f8f7f3]" id="community">
+      <section
+        className="pt-25 pb-60 px-6 bg-[#f8f7f3] min-h-screen snap-start"
+        id="community"
+      >
         <div className="max-w-7xl mx-auto">
           <h2 className="text-8xl font-bold mb-16 font-['Times New Roman'] opacity-90 leading-none  ml-[-400px]">
             community<span className="text-amber-400"> . </span>
@@ -1369,7 +1387,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-6 border-t">
+      <footer className="py-8 px-6 border-t snap-start">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-black rounded-full"></div>
