@@ -123,6 +123,7 @@ export default function Home() {
   const [visible, setVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [contactModalOpen, setContactModalOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -132,6 +133,30 @@ export default function Home() {
 
       setPrevScrollPos(currentScrollPos);
       setVisible(isVisible);
+
+      // Determine active section based on scroll position
+      const sections = [
+        "home",
+        "about",
+        "skills",
+        "projects",
+        "experience",
+        "awards",
+        "community",
+        "featured",
+      ];
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // If the section is in view (with some buffer for better UX)
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -158,6 +183,12 @@ export default function Home() {
   const emailAddress = "oliverwai9na@gmail.com";
   const phoneNumber = "+254742949664";
 
+  // Function to handle navbar item click
+  const handleNavClick = (section: string) => {
+    setActiveSection(section);
+    closeMobileMenu();
+  };
+
   return (
     <div className="min-h-screen bg-[#f8f7f3] text-black font-['Times New Roman'] snap-y snap-mandatory overflow-y-scroll h-screen">
       {/* Navigation - with transition for smooth hiding/showing */}
@@ -177,40 +208,75 @@ export default function Home() {
         <div className="hidden md:flex gap-8">
           <Link
             href="#about"
-            className="font-medium text-sm font-['Times New Roman']"
+            className={`font-medium text-sm font-['Times New Roman'] ${
+              activeSection === "about" ? "text-amber-600 font-bold" : ""
+            }`}
+            onClick={() => handleNavClick("about")}
           >
             About
           </Link>
           <Link
             href="#skills"
-            className="font-medium text-sm font-['Times New Roman']"
+            className={`font-medium text-sm font-['Times New Roman'] ${
+              activeSection === "skills" ? "text-amber-600 font-bold" : ""
+            }`}
+            onClick={() => handleNavClick("skills")}
           >
             Skills
           </Link>
           <Link
             href="#projects"
-            className="font-medium text-sm font-['Times New Roman']"
+            className={`font-medium text-sm font-['Times New Roman'] ${
+              activeSection === "projects" ? "text-amber-600 font-bold" : ""
+            }`}
+            onClick={() => handleNavClick("projects")}
           >
             Projects
           </Link>
           <Link
             href="#experience"
-            className="font-medium text-sm font-['Times New Roman']"
+            className={`font-medium text-sm font-['Times New Roman'] ${
+              activeSection === "experience" ? "text-amber-600 font-bold" : ""
+            }`}
+            onClick={() => handleNavClick("experience")}
           >
             Experience
           </Link>
           <Link
             href="#awards"
-            className="font-medium text-sm font-['Times New Roman']"
+            className={`font-medium text-sm font-['Times New Roman'] ${
+              activeSection === "awards" ? "text-amber-600 font-bold" : ""
+            }`}
+            onClick={() => handleNavClick("awards")}
           >
             Awards
           </Link>
           <Link
-            href="/contact"
-            className="font-medium text-sm font-['Times New Roman']"
+            href="#community"
+            className={`font-medium text-sm font-['Times New Roman'] ${
+              activeSection === "community" ? "text-amber-600 font-bold" : ""
+            }`}
+            onClick={() => handleNavClick("community")}
+          >
+            Community
+          </Link>
+          <Link
+            href="#featured"
+            className={`font-medium text-sm font-['Times New Roman'] ${
+              activeSection === "featured" ? "text-amber-600 font-bold" : ""
+            }`}
+            onClick={() => handleNavClick("featured")}
+          >
+            Featured
+          </Link>
+          <button
+            onClick={toggleContactModal}
+            className={`font-medium text-sm font-['Times New Roman'] ${
+              contactModalOpen ? "text-amber-600 font-bold" : ""
+            }`}
           >
             Contact
-          </Link>
+          </button>
         </div>
 
         {/* Mobile Menu Button - Only visible on small screens */}
@@ -278,46 +344,78 @@ export default function Home() {
         <div className="flex flex-col items-center gap-8 text-white">
           <Link
             href="#about"
-            className="font-medium text-2xl font-['Times New Roman'] hover:text-amber-400 transition-colors"
-            onClick={closeMobileMenu}
+            className={`font-medium text-2xl font-['Times New Roman'] hover:text-amber-400 transition-colors ${
+              activeSection === "about" ? "text-amber-400" : ""
+            }`}
+            onClick={() => handleNavClick("about")}
           >
             About
           </Link>
           <Link
             href="#skills"
-            className="font-medium text-2xl font-['Times New Roman'] hover:text-amber-400 transition-colors"
-            onClick={closeMobileMenu}
+            className={`font-medium text-2xl font-['Times New Roman'] hover:text-amber-400 transition-colors ${
+              activeSection === "skills" ? "text-amber-400" : ""
+            }`}
+            onClick={() => handleNavClick("skills")}
           >
             Skills
           </Link>
           <Link
             href="#projects"
-            className="font-medium text-2xl font-['Times New Roman'] hover:text-amber-400 transition-colors"
-            onClick={closeMobileMenu}
+            className={`font-medium text-2xl font-['Times New Roman'] hover:text-amber-400 transition-colors ${
+              activeSection === "projects" ? "text-amber-400" : ""
+            }`}
+            onClick={() => handleNavClick("projects")}
           >
             Projects
           </Link>
           <Link
             href="#experience"
-            className="font-medium text-2xl font-['Times New Roman'] hover:text-amber-400 transition-colors"
-            onClick={closeMobileMenu}
+            className={`font-medium text-2xl font-['Times New Roman'] hover:text-amber-400 transition-colors ${
+              activeSection === "experience" ? "text-amber-400" : ""
+            }`}
+            onClick={() => handleNavClick("experience")}
           >
             Experience
           </Link>
           <Link
             href="#awards"
-            className="font-medium text-2xl font-['Times New Roman'] hover:text-amber-400 transition-colors"
-            onClick={closeMobileMenu}
+            className={`font-medium text-2xl font-['Times New Roman'] hover:text-amber-400 transition-colors ${
+              activeSection === "awards" ? "text-amber-400" : ""
+            }`}
+            onClick={() => handleNavClick("awards")}
           >
             Awards
           </Link>
           <Link
-            href="/contact"
-            className="font-medium text-2xl font-['Times New Roman'] hover:text-amber-400 transition-colors"
-            onClick={closeMobileMenu}
+            href="#community"
+            className={`font-medium text-2xl font-['Times New Roman'] hover:text-amber-400 transition-colors ${
+              activeSection === "community" ? "text-amber-400" : ""
+            }`}
+            onClick={() => handleNavClick("community")}
+          >
+            Community
+          </Link>
+          <Link
+            href="#featured"
+            className={`font-medium text-2xl font-['Times New Roman'] hover:text-amber-400 transition-colors ${
+              activeSection === "featured" ? "text-amber-400" : ""
+            }`}
+            onClick={() => handleNavClick("featured")}
+          >
+            featured
+          </Link>
+          <button
+            onClick={() => {
+              toggleContactModal();
+              closeMobileMenu();
+            }}
+            className={`font-medium text-2xl font-['Times New Roman'] hover:text-amber-400 transition-colors ${
+              contactModalOpen ? "text-amber-400" : ""
+            }`}
           >
             Contact
-          </Link>
+          </button>
         </div>
 
         <div className="mt-12 flex gap-6">
@@ -462,7 +560,7 @@ export default function Home() {
           </p>
 
           <p className="mt-2 mb-10 max-w-md text-left md:text-right font-['Times New Roman']">
-            And some Golf!
+            Always open for a round of Golf!
           </p>
 
           {/* CTA Buttons */}
@@ -498,6 +596,14 @@ export default function Home() {
               </span>
               <p className="text-xs mt-2 max-w-[150px] font-['Times New Roman']">
                 Languages: English, Swahili, Chinese, and Sign Language
+              </p>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-4xl md:text-5xl font-bold font-['Times New Roman']">
+                + 4
+              </span>
+              <p className="text-xs mt-2 max-w-[150px] font-['Times New Roman']">
+                International and national awards
               </p>
             </div>
           </div>
@@ -709,9 +815,14 @@ export default function Home() {
                         {/* USSD Icon - Using phone icon as closest alternative */}
                         <FaPhone size={20} />
                       </div>
-                      <span className="text-white font-['Times New Roman']">
-                        USSD Programming
-                      </span>
+                      <div>
+                        <span className="text-white font-['Times New Roman']">
+                          USSD Programming
+                        </span>
+                        <div className="text-xs text-white/60 mt-1">
+                          Africa&apos;s Talking API, Safaricom Daraja API
+                        </div>
+                      </div>
                     </div>
 
                     <div className="flex items-center gap-4">
@@ -719,9 +830,14 @@ export default function Home() {
                         {/* Hardware Icon */}
                         <FaMicrochip size={20} />
                       </div>
-                      <span className="text-white font-['Times New Roman']">
-                        Hardware
-                      </span>
+                      <div>
+                        <span className="text-white font-['Times New Roman']">
+                          Hardware
+                        </span>
+                        <div className="text-xs text-white/60 mt-1">
+                          Embedded Systems Development
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1116,7 +1232,7 @@ export default function Home() {
                       Iron Gate Technologies
                     </h3>
                     <p className="text-base md:text-lg font-['Times New Roman']">
-                      Full Stack Developer | 2021 - Present
+                      Full Stack Developer | 2023 - Present
                     </p>
                   </div>
                   <div className="mt-4 md:mt-0">
@@ -1167,7 +1283,7 @@ export default function Home() {
 
               <div className="md:text-right whitespace-nowrap">
                 <a
-                  href="#"
+                  href="https://sautisalama.org"
                   className="inline-block px-6 py-2 border border-black rounded-full text-sm font-['Times New Roman'] hover:bg-black hover:text-white transition-colors"
                 >
                   View Details
@@ -1241,7 +1357,45 @@ export default function Home() {
 
               <div className="md:text-right whitespace-nowrap">
                 <a
-                  href="#"
+                  href="https://www.linkedin.com/company/akili-factory"
+                  className="inline-block px-6 py-2 border border-black rounded-full text-sm font-['Times New Roman'] hover:bg-black hover:text-white transition-colors"
+                >
+                  View Details
+                </a>
+              </div>
+            </div>
+          </div>
+          {/* Experience Item 05 */}
+          <div className="border-t border-black pt-8 pb-16">
+            <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-12">
+              <div className="w-12 text-3xl font-bold">04</div>
+
+              <div className="flex-1">
+                <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-6">
+                  <div>
+                    <h3 className="text-4xl font-bold font-['Times New Roman'] italic mb-2">
+                      Embed IoT
+                    </h3>
+                    <p className="text-lg font-['Times New Roman']">
+                      Software Engineer | 2022 - 2025
+                    </p>
+                  </div>
+                  <div className="mt-4 md:mt-0">
+                    <span className="inline-block px-6 py-2 border border-black rounded-full text-sm font-['Times New Roman']">
+                      Kenya
+                    </span>
+                  </div>
+                </div>
+
+                <p className="text-lg font-['Times New Roman'] max-w-3xl">
+                  Led a team in developing an IoT platform for agricultural
+                  monitoring and management. Developed a mobile app for farmers
+                  to monitor their crops and livestock.
+                </p>
+              </div>
+              <div className="md:text-right whitespace-nowrap">
+                <a
+                  href="https://embed.co.ke"
                   className="inline-block px-6 py-2 border border-black rounded-full text-sm font-['Times New Roman'] hover:bg-black hover:text-white transition-colors"
                 >
                   View Details
@@ -1384,11 +1538,11 @@ export default function Home() {
                       Second Runner-up | 2024
                     </p>
                     <p className="text-base font-['Times New Roman'] text-white/80 max-w-3xl">
-                      Awarded for the Laibu educational platform concept, which
-                      provides remote learning solutions to underserved
-                      communities. The Business Idea Marathon at Daystar
-                      University celebrates innovative entrepreneurial concepts
-                      with social impact.
+                      Awarded for the Sauti salama platform , which provides
+                      support for survivors of Gender Based Violence in
+                      climate-affected regions. The Business Idea Marathon at
+                      Daystar University celebrates innovative entrepreneurial
+                      concepts with social impact.
                     </p>
                   </div>
                 </div>
@@ -1449,17 +1603,17 @@ export default function Home() {
 
                   <div className="flex-1">
                     <h3 className="text-3xl font-bold italic font-['Times New Roman'] mb-2">
-                      Nairobi International Trade Fair
+                      Nairobi Innovation Week
                     </h3>
                     <p className="text-lg font-['Times New Roman'] text-white/70 mb-4">
-                      First Position - Best Innovation Stand | 2022
+                      First Position - Best Innovation | 2022
                     </p>
                     <p className="text-base font-['Times New Roman'] text-white/80 max-w-3xl">
-                      Recognized for the University of Nairobi Online Campus
-                      Library Project, which digitized educational resources
-                      during the COVID-19 pandemic. The Nairobi International
-                      Trade Fair is East Africa&apos;s largest multi-sectoral
-                      trade exhibition.
+                      Recognized for the smart agriculture solutions, which
+                      digitized farming. The project involved using IoT devices
+                      in Bee farming as well as in irrigation systems. The
+                      Nairobi Innovation Week is East Africa&apos;s largest
+                      multi-sectoral technology exhibition.
                     </p>
                   </div>
                 </div>
@@ -1600,6 +1754,85 @@ export default function Home() {
         </div>
       </section>
 
+      {/* featured Section */}
+      <section
+        className="pt-16 md:pt-25 pb-40 md:pb-60 px-4 md:px-6 bg-[#171622] text-white min-h-screen snap-start"
+        id="featured"
+      >
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-5xl md:text-8xl font-bold mb-10 md:mb-16 font-['Times New Roman'] opacity-90 leading-none ml-0 md:ml-[-400px] overflow-hidden">
+            featured<span className="text-amber-400"> . </span> featured
+            <span className="text-amber-400"> . </span> featured
+            <span className="text-amber-400"> . </span>
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            {/* Video Item 01 */}
+            <div className="group relative">
+              <div className="absolute -left-6 -top-6 text-6xl font-bold opacity-20 group-hover:opacity-100 transition-opacity duration-300">
+                01
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg border border-white/10 h-full flex flex-col justify-between transform transition-all duration-500 group-hover:translate-y-[-8px] group-hover:shadow-[0_10px_40px_rgba(255,176,59,0.15)]">
+                <div>
+                  <h3 className="text-3xl font-bold italic font-['Times New Roman'] mb-3 text-white">
+                    IoT solutions to solve African Problems
+                  </h3>
+                  <div className="w-16 h-1 bg-amber-400 mb-6"></div>
+
+                  <div className="aspect-video w-full overflow-hidden rounded-lg">
+                    <iframe
+                      className="w-full h-full"
+                      src="https://www.youtube.com/embed/cTGCtd0oY1U?si=2wWupCKGfklAiIWm"
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+
+                  <p className="font-['Times New Roman'] text-white/80 mt-6">
+                    Gearbox Europlacer circuit fabrication and embedded systems
+                    development
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Video Item 02 */}
+            <div className="group relative">
+              <div className="absolute -left-6 -top-6 text-6xl font-bold opacity-20 group-hover:opacity-100 transition-opacity duration-300">
+                02
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg border border-white/10 h-full flex flex-col justify-between transform transition-all duration-500 group-hover:translate-y-[-8px] group-hover:shadow-[0_10px_40px_rgba(255,176,59,0.15)]">
+                <div>
+                  <h3 className="text-3xl font-bold italic font-['Times New Roman'] mb-3 text-white">
+                    Take On Tech: Using Technology To Address GBV
+                  </h3>
+                  <div className="w-16 h-1 bg-amber-400 mb-6"></div>
+
+                  <div className="aspect-video w-full overflow-hidden rounded-lg">
+                    <iframe
+                      className="w-full h-full"
+                      src="https://www.youtube.com/embed/V6wfwCvb_bE?si=Mh4E3VKKk2cAvamj"
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+
+                  <p className="font-['Times New Roman'] text-white/80 mt-6">
+                    Daystar University Tech Talk | KBC TV
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="py-6 md:py-8 px-4 md:px-6 border-t snap-start">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
@@ -1625,6 +1858,15 @@ export default function Home() {
             </Link>
             <Link href="#awards" className="text-sm font-['Times New Roman']">
               Awards
+            </Link>
+            <Link
+              href="#community"
+              className="text-sm font-['Times New Roman']"
+            >
+              Community
+            </Link>
+            <Link href="#featured" className="text-sm font-['Times New Roman']">
+              Featured
             </Link>
             <Link href="#" className="text-sm font-['Times New Roman']">
               Contact
