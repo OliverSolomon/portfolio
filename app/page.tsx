@@ -207,6 +207,12 @@ export default function Home() {
         {/* Navigation Links - Hidden on mobile, visible on md and up */}
         <div className="hidden md:flex gap-8">
           <Link
+            href="/media"
+            className="font-medium text-sm font-['Times New Roman'] hover:text-amber-600 transition-colors"
+          >
+            Media
+          </Link>
+          <Link
             href="#about"
             className={`font-medium text-sm font-['Times New Roman'] ${
               activeSection === "about" ? "text-amber-600 font-bold" : ""
@@ -342,6 +348,13 @@ export default function Home() {
         }`}
       >
         <div className="flex flex-col items-center gap-8 text-white">
+          <Link
+            href="/media"
+            className="font-medium text-2xl font-['Times New Roman'] hover:text-amber-400 transition-colors"
+            onClick={closeMobileMenu}
+          >
+            Media
+          </Link>
           <Link
             href="#about"
             className={`font-medium text-2xl font-['Times New Roman'] hover:text-amber-400 transition-colors ${
@@ -1841,6 +1854,9 @@ export default function Home() {
             <div className="w-8 h-8 border border-black rounded-full"></div>
           </div>
           <div className="flex flex-wrap justify-center gap-4 md:gap-8">
+            <Link href="/media" className="text-sm font-['Times New Roman']">
+              Media
+            </Link>
             <Link href="#about" className="text-sm font-['Times New Roman']">
               About
             </Link>
