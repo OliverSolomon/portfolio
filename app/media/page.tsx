@@ -441,6 +441,117 @@ export default function MediaPage() {
           </div>
         </section>
 
+        {/* Suggest Speaking Engagement Section */}
+        <section className="py-12 sm:py-16 md:py-20 bg-white/50">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 md:px-10">
+            <div className="text-center mb-8 sm:mb-12">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
+                Suggest a Speaking Engagement
+              </h2>
+              <p className="text-base sm:text-lg text-gray-700 max-w-2xl mx-auto px-4">
+                Interested in having me speak at your event, conference, or workshop? 
+                I'd love to hear about your opportunity and discuss how I can contribute.
+              </p>
+            </div>
+            
+            <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 md:p-8 lg:p-12">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                {/* Contact Information */}
+                <div>
+                  <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6">Get in Touch</h3>
+                  <div className="space-y-3 sm:space-y-4">
+                    <div className="break-words">
+                      <span className="font-semibold text-gray-700 text-sm sm:text-base">Email:</span>
+                      <a 
+                        href="mailto:oliverwai9na@gmail.com?subject=Speaking Engagement Inquiry" 
+                        className="text-amber-600 hover:text-amber-700 ml-2 underline text-sm sm:text-base break-all"
+                      >
+                        oliverwai9na@gmail.com
+                      </a>
+                    </div>
+                    <div className="break-words">
+                      <span className="font-semibold text-gray-700 text-sm sm:text-base">Phone:</span>
+                      <a 
+                        href="tel:+254742949664" 
+                        className="text-amber-600 hover:text-amber-700 ml-2 underline text-sm sm:text-base"
+                      >
+                        +254742949664
+                      </a>
+                    </div>
+                    <div className="break-words">
+                      <span className="font-semibold text-gray-700 text-sm sm:text-base">LinkedIn:</span>
+                      <a 
+                        href="https://www.linkedin.com/in/oliver-s-wainaina" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-amber-600 hover:text-amber-700 ml-2 underline text-sm sm:text-base break-all"
+                      >
+                        Connect with me
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Speaking Topics */}
+                <div>
+                  <h3 className="text-lg sm:text-xl font-bold mb-4 sm:mb-6">Speaking Topics</h3>
+                  <div className="space-y-2 sm:space-y-3">
+                    <div className="flex items-start">
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-amber-600 rounded-full mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                      <span className="text-gray-700 text-sm sm:text-base">Full Stack Development & Modern Web Technologies</span>
+                    </div>
+                    <div className="flex items-start">
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-amber-600 rounded-full mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                      <span className="text-gray-700 text-sm sm:text-base">IoT Solutions for Agriculture & Healthcare</span>
+                    </div>
+                    <div className="flex items-start">
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-amber-600 rounded-full mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                      <span className="text-gray-700 text-sm sm:text-base">Design Thinking & Problem-Solving Methodologies</span>
+                    </div>
+                    <div className="flex items-start">
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-amber-600 rounded-full mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                      <span className="text-gray-700 text-sm sm:text-base">AI/ML Integration & Innovation</span>
+                    </div>
+                    <div className="flex items-start">
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-amber-600 rounded-full mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                      <span className="text-gray-700 text-sm sm:text-base">Youth Leadership & Digital Policy</span>
+                    </div>
+                    <div className="flex items-start">
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-amber-600 rounded-full mt-2 mr-2 sm:mr-3 flex-shrink-0"></div>
+                      <span className="text-gray-700 text-sm sm:text-base">Tech Entrepreneurship & Startup Mentoring</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Call to Action */}
+              <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-gray-200">
+                <div className="text-center">
+                  <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Ready to Collaborate?</h3>
+                  <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-6 px-4">
+                    Whether it's a keynote, workshop, panel discussion, or mentoring session, 
+                    I'm excited to share insights and inspire your audience.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-sm sm:max-w-none mx-auto">
+                    <a
+                      href="mailto:oliverwai9na@gmail.com?subject=Speaking Engagement Inquiry&body=Hi Oliver,%0D%0A%0D%0AI'm interested in having you speak at our event. Here are the details:%0D%0A%0D%0AEvent Name:%0D%0ADate:%0D%0ALocation:%0D%0AAudience Size:%0D%0ATopic/Theme:%0D%0A%0D%0APlease let me know if you're available and interested.%0D%0A%0D%0AThank you!"
+                      className="bg-amber-600 text-white px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 rounded-lg hover:bg-amber-700 transition-colors font-semibold text-sm sm:text-base w-full sm:w-auto"
+                    >
+                      Send Speaking Inquiry
+                    </a>
+                    <a
+                      href="/contact"
+                      className="bg-gray-800 text-white px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 rounded-lg hover:bg-gray-900 transition-colors font-semibold text-sm sm:text-base w-full sm:w-auto"
+                    >
+                      View Contact Info
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* YouTube Videos Section */}
         <section>
           <h2 className="text-4xl md:text-5xl font-bold italic font-['Times New Roman'] mb-12 text-center text-black">
