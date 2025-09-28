@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import QRCodeModal from "./components/QRCodeModal";
 import {
   SiPython,
   SiCplusplus,
@@ -122,7 +123,7 @@ export default function Home() {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [contactModalOpen, setContactModalOpen] = useState(false);
+  const [qrModalOpen, setQrModalOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
@@ -171,13 +172,7 @@ export default function Home() {
     setMobileMenuOpen(false);
   };
 
-  const toggleContactModal = () => {
-    setContactModalOpen(!contactModalOpen);
-  };
 
-  const closeContactModal = () => {
-    setContactModalOpen(false);
-  };
 
   // Email and phone details
   const emailAddress = "oliverwai9na@gmail.com";
@@ -211,12 +206,6 @@ export default function Home() {
             className="font-medium text-sm font-['Times New Roman'] hover:text-amber-600 transition-colors"
           >
             Media
-          </Link>
-          <Link
-            href="/contact"
-            className="font-medium text-sm font-['Times New Roman'] hover:text-amber-600 transition-colors"
-          >
-            Contact
           </Link>
           <Link
             href="#about"
@@ -281,14 +270,6 @@ export default function Home() {
           >
             Featured
           </Link>
-          <button
-            onClick={toggleContactModal}
-            className={`font-medium text-sm font-['Times New Roman'] ${
-              contactModalOpen ? "text-amber-600 font-bold" : ""
-            }`}
-          >
-            Contact
-          </button>
         </div>
 
         {/* Mobile Menu Button - Only visible on small screens */}
@@ -361,13 +342,15 @@ export default function Home() {
           >
             Media
           </Link>
-          <Link
-            href="/contact"
+          <button
+            onClick={() => {
+              setQrModalOpen(true);
+              closeMobileMenu();
+            }}
             className="font-medium text-2xl font-['Times New Roman'] hover:text-amber-400 transition-colors"
-            onClick={closeMobileMenu}
           >
-            Contact
-          </Link>
+            QR-Scan
+          </button>
           <Link
             href="#about"
             className={`font-medium text-2xl font-['Times New Roman'] hover:text-amber-400 transition-colors ${
@@ -431,17 +414,6 @@ export default function Home() {
           >
             featured
           </Link>
-          <button
-            onClick={() => {
-              toggleContactModal();
-              closeMobileMenu();
-            }}
-            className={`font-medium text-2xl font-['Times New Roman'] hover:text-amber-400 transition-colors ${
-              contactModalOpen ? "text-amber-400" : ""
-            }`}
-          >
-            Contact
-          </button>
         </div>
 
         <div className="mt-12 flex gap-6">
@@ -472,102 +444,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Contact Modal */}
-      {contactModalOpen && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div
-            className="bg-white rounded-2xl max-w-md w-full p-8 relative transform transition-all duration-300 shadow-xl"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={closeContactModal}
-              className="absolute top-4 right-4 text-gray-500 hover:text-black transition-colors"
-              aria-label="Close modal"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            </button>
-
-            <h3 className="text-3xl font-bold italic font-['Times New Roman'] mb-6 text-center">
-              Get in Touch
-            </h3>
-
-            <div className="space-y-6">
-              <a
-                href={`mailto:${emailAddress}`}
-                target="_blank"
-                className="flex items-center gap-4 p-4 border border-gray-200 rounded-xl hover:bg-amber-50 transition-colors group w-full"
-              >
-                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-600 group-hover:bg-amber-200 transition-colors">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                  </svg>
-                </div>
-                <div>
-                  <div className="font-bold font-['Times New Roman']">
-                    Email
-                  </div>
-                  <div className="text-gray-600 text-sm">{emailAddress}</div>
-                </div>
-              </a>
-
-              <a
-                href={`tel:${phoneNumber}`}
-                className="flex items-center gap-4 p-4 border border-gray-200 rounded-xl hover:bg-amber-50 transition-colors group w-full"
-              >
-                <div className="w-12 h-12 bg-amber-100 rounded-full flex items-center justify-center text-amber-600 group-hover:bg-amber-200 transition-colors">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                  </svg>
-                </div>
-                <div>
-                  <div className="font-bold font-['Times New Roman']">
-                    Phone
-                  </div>
-                  <div className="text-gray-600 text-sm">{phoneNumber}</div>
-                </div>
-              </a>
-
-              <div className="pt-4 text-center text-sm text-gray-500">
-                I&apos;ll get back to you as soon as possible!
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
       {/* Hero Section */}
       <section
@@ -591,12 +467,12 @@ export default function Home() {
 
           {/* CTA Buttons */}
           <div className="my-8 md:my-12 flex flex-col sm:flex-row gap-4">
-            <button
-              onClick={toggleContactModal}
+            <a
+              href="mailto:oliverwai9na@gmail.com"
               className="px-6 md:px-8 py-3 md:py-4 bg-black text-white rounded-full text-base md:text-lg font-['Times New Roman'] hover:bg-amber-600 transition-colors text-center"
             >
               Get in Touch
-            </button>
+            </a>
             <Link
               href="https://docs.google.com/document/d/1zUHarjm9ktrOpnMlwR2aWcku3f3nBdIBYqbdm-MwEpE/edit?usp=sharing"
               className="px-6 md:px-8 py-3 md:py-4 bg-black text-white rounded-full text-base md:text-lg font-['Times New Roman'] hover:bg-amber-600 transition-colors text-center"
@@ -1870,9 +1746,6 @@ export default function Home() {
             <Link href="/media" className="text-sm font-['Times New Roman']">
               Media
             </Link>
-            <Link href="/contact" className="text-sm font-['Times New Roman']">
-              Contact
-            </Link>
             <Link href="#about" className="text-sm font-['Times New Roman']">
               About
             </Link>
@@ -1924,6 +1797,9 @@ export default function Home() {
           </p>
         </div>
       </footer>
+
+      {/* QR Code Modal */}
+      <QRCodeModal isOpen={qrModalOpen} onClose={() => setQrModalOpen(false)} />
     </div>
   );
 }

@@ -132,25 +132,6 @@ const speakingEngagements: SpeakingEngagement[] = [
       { type: "image", url: "/media/We Lead 2025 Summit/onGrass.jpg", alt: "Speaking at We Lead 2025 Summit" },
       { type: "image", url: "/media/We Lead 2025 Summit/withGolfClub.jpg", alt: "Networking at the summit" }
     ]
-  },
-  {
-    id: 6,
-    title: "Technology for Peace and Security",
-    event: "Sauti Salama Peace Initiative 2025",
-    date: "2025",
-    location: "Nairobi, Kenya",
-    image: "/protest-sauti.webp",
-    description: "Collaborated with Sauti Salama on using technology to promote peace and security through community engagement, dialogue, and innovative digital solutions for conflict resolution and social cohesion. The initiative focuses on empowering communities through technology-driven peacebuilding.",
-    takeaways: [
-      "Technology can be a powerful tool for peacebuilding",
-      "Community engagement is essential for sustainable peace initiatives",
-      "Digital platforms can facilitate dialogue and understanding",
-      "Technology solutions must be culturally sensitive and inclusive",
-      "Youth involvement in peace initiatives drives long-term impact"
-    ],
-    media: [
-      { type: "image", url: "/protest-sauti.webp", alt: "Sauti Salama peace initiative" }
-    ]
   }
 ];
 
@@ -329,9 +310,6 @@ export default function MediaPage() {
           <Link href="/media" className="text-sm font-['Times New Roman'] text-amber-600 font-semibold">
             Media
           </Link>
-          <Link href="/contact" className="text-sm font-['Times New Roman'] hover:text-amber-600 transition-colors">
-            Contact
-          </Link>
           <Link href="/#about" className="text-sm font-['Times New Roman'] hover:text-amber-600 transition-colors">
             About
           </Link>
@@ -364,9 +342,6 @@ export default function MediaPage() {
             <Link href="/media" className="text-sm font-['Times New Roman'] text-amber-600 font-semibold" onClick={closeMobileMenu}>
               Media
             </Link>
-            <Link href="/contact" className="text-sm font-['Times New Roman']" onClick={closeMobileMenu}>
-              Contact
-            </Link>
             <Link href="/#about" className="text-sm font-['Times New Roman']" onClick={closeMobileMenu}>
               About
             </Link>
@@ -385,7 +360,7 @@ export default function MediaPage() {
         {/* Page Header */}
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-7xl font-bold italic font-['Times New Roman'] mb-6 text-black">
-            Media
+            Talks & Media Coverage
           </h1>
           <div className="w-24 h-1 bg-amber-400 mx-auto mb-8"></div>
           <p className="text-lg font-['Times New Roman'] text-black/70 max-w-2xl mx-auto">
@@ -780,9 +755,6 @@ export default function MediaPage() {
             </Link>
             <Link href="/media" className="text-sm font-['Times New Roman'] text-amber-600 font-semibold">
               Media
-            </Link>
-            <Link href="/contact" className="text-sm font-['Times New Roman']">
-              Contact
             </Link>
             <Link href="/#about" className="text-sm font-['Times New Roman']">
               About
