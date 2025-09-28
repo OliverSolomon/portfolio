@@ -1,0 +1,17 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Oliver Wainaina
+N:Wainaina;Oliver;;;
+ORG:Freelance Full Stack Software Engineer & IoT Developer
+TITLE:Full Stack Software Engineer & IoT Developer
+TEL;TYPE=CELL:+254742949664
+EMAIL;TYPE=WORK:oliverwai9na@gmail.com
+URL:https://oliversolomon.dev
+URL;TYPE=LinkedIn:https://www.linkedin.com/in/oliver-s-wainaina
+URL;TYPE=GitHub:https://github.com/oliversolomon
+URL;TYPE=Twitter:https://twitter.com/oliversolomon10
+ADR;TYPE=WORK:;;Nairobi;Nairobi;00100;Kenya
+NOTE:Full Stack Software Engineer & IoT Developer specializing in web development, mobile apps, and IoT solutions. Tech speaker, design thinking mentor, and youth leadership advocate. Available for freelance projects, consulting, speaking engagements, and mentoring.
+CATEGORIES:Software Engineer,Developer,Speaker,Mentor,Technology
+REV:2025-01-27T00:00:00Z
+END:VCARD

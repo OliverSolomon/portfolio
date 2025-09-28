@@ -329,6 +329,9 @@ export default function MediaPage() {
           <Link href="/media" className="text-sm font-['Times New Roman'] text-amber-600 font-semibold">
             Media
           </Link>
+          <Link href="/contact" className="text-sm font-['Times New Roman'] hover:text-amber-600 transition-colors">
+            Contact
+          </Link>
           <Link href="/#about" className="text-sm font-['Times New Roman'] hover:text-amber-600 transition-colors">
             About
           </Link>
@@ -360,6 +363,9 @@ export default function MediaPage() {
             </Link>
             <Link href="/media" className="text-sm font-['Times New Roman'] text-amber-600 font-semibold" onClick={closeMobileMenu}>
               Media
+            </Link>
+            <Link href="/contact" className="text-sm font-['Times New Roman']" onClick={closeMobileMenu}>
+              Contact
             </Link>
             <Link href="/#about" className="text-sm font-['Times New Roman']" onClick={closeMobileMenu}>
               About
@@ -663,6 +669,9 @@ export default function MediaPage() {
             </Link>
             <Link href="/media" className="text-sm font-['Times New Roman'] text-amber-600 font-semibold">
               Media
+            </Link>
+            <Link href="/contact" className="text-sm font-['Times New Roman']">
+              Contact
             </Link>
             <Link href="/#about" className="text-sm font-['Times New Roman']">
               About

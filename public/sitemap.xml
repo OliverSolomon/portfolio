@@ -18,6 +18,14 @@
     <priority>0.8</priority>
   </url>
   
+  <!-- Contact Page -->
+  <url>
+    <loc>https://oliversolomon.dev/contact</loc>
+    <lastmod>2025-01-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
   <!-- Speaking Engagements (individual pages could be added here) -->
   <url>
     <loc>https://oliversolomon.dev/media#speaking-engagements</loc>

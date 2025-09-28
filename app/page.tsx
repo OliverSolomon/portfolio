@@ -213,6 +213,12 @@ export default function Home() {
             Media
           </Link>
           <Link
+            href="/contact"
+            className="font-medium text-sm font-['Times New Roman'] hover:text-amber-600 transition-colors"
+          >
+            Contact
+          </Link>
+          <Link
             href="#about"
             className={`font-medium text-sm font-['Times New Roman'] ${
               activeSection === "about" ? "text-amber-600 font-bold" : ""
@@ -354,6 +360,13 @@ export default function Home() {
             onClick={closeMobileMenu}
           >
             Media
+          </Link>
+          <Link
+            href="/contact"
+            className="font-medium text-2xl font-['Times New Roman'] hover:text-amber-400 transition-colors"
+            onClick={closeMobileMenu}
+          >
+            Contact
           </Link>
           <Link
             href="#about"
@@ -1856,6 +1869,9 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-4 md:gap-8">
             <Link href="/media" className="text-sm font-['Times New Roman']">
               Media
+            </Link>
+            <Link href="/contact" className="text-sm font-['Times New Roman']">
+              Contact
             </Link>
             <Link href="#about" className="text-sm font-['Times New Roman']">
               About
