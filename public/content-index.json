@@ -1,0 +1,242 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Oliver Wainaina Portfolio",
+  "url": "https://oliversolomon.dev",
+  "description": "Complete portfolio and professional information for Oliver Wainaina - Full Stack Software Engineer & IoT Developer",
+  "author": {
+    "@type": "Person",
+    "name": "Oliver Wainaina",
+    "alternateName": "Oliver Solomon"
+  },
+  "content": {
+    "personalInformation": {
+      "fullName": "Oliver Wainaina",
+      "alternateName": "Oliver Solomon",
+      "email": "oliverwai9na@gmail.com",
+      "phone": "+254742949664",
+      "location": "Nairobi, Kenya",
+      "profession": "Full Stack Software Engineer & IoT Developer",
+      "education": "University of Nairobi - Software Engineering",
+      "socialProfiles": {
+        "linkedin": "https://www.linkedin.com/in/oliver-s-wainaina",
+        "github": "https://github.com/oliversolomon",
+        "twitter": "https://twitter.com/oliversolomon10"
+      }
+    },
+    "technicalSkills": {
+      "programmingLanguages": ["JavaScript", "TypeScript", "Python", "Java", "C++"],
+      "webTechnologies": ["React", "Next.js", "Node.js", "Express", "Django", "Flask"],
+      "mobileDevelopment": ["React Native", "Flutter", "Progressive Web Apps"],
+      "cloudPlatforms": ["AWS", "Google Cloud", "Azure", "Heroku"],
+      "databases": ["PostgreSQL", "MongoDB", "MySQL", "Redis"],
+      "iotTechnologies": ["Arduino", "Raspberry Pi", "ESP32", "MQTT", "LoRaWAN"],
+      "aiMlTools": ["TensorFlow", "PyTorch", "Scikit-learn", "OpenCV"],
+      "devopsTools": ["Docker", "Kubernetes", "Jenkins", "Git", "CI/CD"],
+      "designTools": ["Figma", "Adobe XD", "Sketch", "Canva"]
+    },
+    "professionalExperience": {
+      "currentRole": "Freelance Full Stack Software Engineer & IoT Developer",
+      "specializations": [
+        "Full Stack Web Development",
+        "IoT Solutions Architecture",
+        "Mobile App Development",
+        "Cloud Architecture and AWS",
+        "AI/ML Integration",
+        "Design Thinking Facilitation",
+        "Tech Speaking and Mentoring",
+        "Youth Leadership Development",
+        "Digital Policy Development",
+        "Community Engagement",
+        "Startup Mentoring",
+        "Hackathon Organization"
+      ],
+      "industries": [
+        "Technology",
+        "Healthcare",
+        "Agriculture",
+        "Education",
+        "Government",
+        "Non-profit",
+        "Startups"
+      ]
+    },
+    "awardsAndRecognition": [
+      {
+        "name": "Gitex Africa 2024 Winner",
+        "year": "2024",
+        "description": "Winner at Gitex Africa 2024 for innovative technology solutions",
+        "category": "Technology Innovation"
+      },
+      {
+        "name": "Nairobi Innovation Week Recognition",
+        "year": "2024",
+        "description": "Recognition for outstanding contribution to Nairobi's innovation ecosystem",
+        "category": "Community Impact"
+      }
+    ],
+    "speakingEngagements": [
+      {
+        "title": "Youth Leadership and Innovation in Africa",
+        "event": "The Brand Africa Summit 2025",
+        "date": "2025-09-19",
+        "location": "St. Andrew's PCEA Auditorium, Nairobi, Kenya",
+        "description": "Keynote presentation on youth leadership and innovation in Africa",
+        "topics": ["Youth Leadership", "Innovation", "Africa Development", "Technology"],
+        "audience": "Youth leaders, entrepreneurs, policymakers",
+        "type": "Keynote"
+      },
+      {
+        "title": "Design Thinking and Problem Solving for AI Innovation",
+        "event": "US-Kenya AI Hackathon 2025",
+        "date": "2025-03-26",
+        "location": "JW Marriott Hotel, Westlands, Nairobi",
+        "description": "Training hackathon attendees on design thinking and problem-solving methodologies for AI innovation",
+        "topics": ["Design Thinking", "Problem Solving", "AI Innovation", "Hackathon Facilitation"],
+        "audience": "AI developers, students, entrepreneurs",
+        "type": "Workshop",
+        "resources": {
+          "slides": "https://docs.google.com/presentation/d/16IMdvS7QREef8QM43b4QHfyqL8EfOd3O/edit?usp=sharing&ouid=115951609750395643471&rtpof=true&sd=true"
+        }
+      },
+      {
+        "title": "Maternal Health and SRHR Innovation",
+        "event": "Amref Afyafest 2025",
+        "date": "2025",
+        "location": "Nairobi, Kenya",
+        "description": "Presentation on maternal health and sexual and reproductive health rights innovation",
+        "topics": ["Maternal Health", "SRHR", "Health Innovation", "Technology for Health"],
+        "audience": "Healthcare professionals, innovators, policymakers",
+        "type": "Presentation",
+        "resources": {
+          "eventPage": "https://amref.ac.ke/afyafest-2025-showcasing-youth-led-innovation-for-primary-healthcare-in-africa/"
+        }
+      },
+      {
+        "title": "Safe and Inclusive Digital Spaces Policy Development",
+        "event": "KICTANet Policy Hackathon 2025",
+        "date": "2025-05-16",
+        "location": "Nairobi, Kenya",
+        "description": "Policy hackathon on safe and inclusive digital spaces in Kenya",
+        "topics": ["Digital Policy", "Digital Rights", "Inclusive Technology", "Policy Development"],
+        "audience": "Policy makers, tech professionals, civil society",
+        "type": "Hackathon",
+        "resources": {
+          "eventPage": "https://www.kictanet.or.ke/policy-hackathon-on-safe-and-inclusive-digital-spaces-in-kenya51656-2/"
+        }
+      },
+      {
+        "title": "Transformational Leadership for Africa's Future",
+        "event": "We Lead 2025 Summit",
+        "date": "2025-07-23",
+        "location": "Urban Hotel, Lusaka, Zambia",
+        "description": "Summit on transformational leadership for Africa's future",
+        "topics": ["Leadership", "Africa Development", "Youth Empowerment", "Innovation"],
+        "audience": "Youth leaders, entrepreneurs, change makers",
+        "type": "Summit"
+      },
+      {
+        "title": "Peace and Security Technology Solutions",
+        "event": "Sauti Salama LinkedIn Initiative",
+        "date": "2025",
+        "location": "Online/LinkedIn",
+        "description": "LinkedIn initiative focused on peace and security technology solutions",
+        "topics": ["Peace Technology", "Security", "Community Building", "Digital Solutions"],
+        "audience": "LinkedIn community, peace advocates, tech professionals",
+        "type": "Online Initiative"
+      }
+    ],
+    "projectsAndWork": {
+      "iotProjects": [
+        "Smart Irrigation Systems for Agriculture",
+        "Environmental Monitoring Solutions",
+        "Smart City Infrastructure"
+      ],
+      "webApplications": [
+        "Full Stack Web Applications",
+        "Progressive Web Apps",
+        "E-commerce Platforms",
+        "Content Management Systems"
+      ],
+      "mobileApplications": [
+        "Cross-platform Mobile Apps",
+        "React Native Applications",
+        "Flutter Applications"
+      ],
+      "aiMlProjects": [
+        "Machine Learning Model Development",
+        "Computer Vision Applications",
+        "Natural Language Processing",
+        "Predictive Analytics"
+      ]
+    },
+    "communityInvolvement": {
+      "organizations": [
+        {
+          "name": "KICTANet",
+          "role": "Member",
+          "description": "Kenya ICT Action Network - Multi-stakeholder platform for ICT policy",
+          "focus": "Digital Policy, ICT Governance"
+        },
+        {
+          "name": "Sauti Salama",
+          "role": "Contributor",
+          "description": "Peace and security initiative using technology",
+          "focus": "Peace Technology, Community Security"
+        }
+      ],
+      "mentoringActivities": [
+        "Youth Leadership Development",
+        "Tech Startup Mentoring",
+        "Hackathon Facilitation",
+        "Design Thinking Workshops"
+      ]
+    },
+    "contentAndMedia": {
+      "videos": [
+        {
+          "title": "Full Stack Development Tutorial",
+          "description": "Comprehensive tutorial on full stack web development",
+          "platform": "YouTube",
+          "url": "https://youtube.com/embed/your-video-id"
+        },
+        {
+          "title": "IoT Solutions for Agriculture",
+          "description": "Presentation on IoT solutions for agricultural challenges",
+          "platform": "YouTube",
+          "url": "https://youtube.com/embed/your-video-id"
+        }
+      ],
+      "presentations": [
+        {
+          "title": "Design Thinking for AI Innovation",
+          "event": "US-Kenya AI Hackathon 2025",
+          "url": "https://docs.google.com/presentation/d/16IMdvS7QREef8QM43b4QHfyqL8EfOd3O/edit?usp=sharing&ouid=115951609750395643471&rtpof=true&sd=true"
+        }
+      ],
+      "articles": [
+        {
+          "title": "Youth Leadership in Technology",
+          "platform": "LinkedIn",
+          "url": "https://www.linkedin.com/in/oliver-s-wainaina"
+        }
+      ]
+    },
+    "contactInformation": {
+      "email": "oliverwai9na@gmail.com",
+      "phone": "+254742949664",
+      "location": "Nairobi, Kenya",
+      "website": "https://oliversolomon.dev",
+      "linkedin": "https://www.linkedin.com/in/oliver-s-wainaina",
+      "github": "https://github.com/oliversolomon",
+      "twitter": "https://twitter.com/oliversolomon10"
+    },
+    "availability": {
+      "freelance": true,
+      "consulting": true,
+      "speaking": true,
+      "mentoring": true,
+      "workshops": true
+    }
+  }
+}

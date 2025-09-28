@@ -1,11 +1,104 @@
-# Allow all crawlers
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://oliverwainaina.co.ke/sitemap.xml
+Sitemap: https://oliversolomon.dev/sitemap.xml
 
-# Prevent crawling of unnecessary paths
-Disallow: /api/
-Disallow: /_next/
-Disallow: /*.json$ 
+# Content index for AI/LLM access
+Sitemap: https://oliversolomon.dev/content-index.json
+
+# Allow all major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# Allow ALL AI/LLM crawlers for complete content access
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: Bard
+Allow: /
+
+User-agent: AI2Bot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+# Allow all content - no restrictions
+Allow: /media/
+Allow: /images/
+Allow: /videos/
+Allow: /public/
+Allow: /static/
+Allow: /assets/
+
+# No crawl delay for AI crawlers - maximum accessibility
+User-agent: GPTBot
+Crawl-delay: 0
+
+User-agent: ChatGPT-User
+Crawl-delay: 0
+
+User-agent: CCBot
+Crawl-delay: 0
+
+User-agent: anthropic-ai
+Crawl-delay: 0
+
+User-agent: Claude-Web
+Crawl-delay: 0
+
+User-agent: PerplexityBot
+Crawl-delay: 0
+
+# Minimal delay for other crawlers
+User-agent: *
+Crawl-delay: 0

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Head from "next/head";
 
 // Type definitions
 interface MediaItem {
@@ -267,8 +268,46 @@ export default function MediaPage() {
     }
   };
 
+  // Structured data for speaking engagements
+  const speakingEngagementsStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Speaking Engagements",
+    "description": "Oliver Wainaina's speaking engagements and presentations on technology, innovation, and leadership",
+    "itemListElement": speakingEngagements.map((engagement, index) => ({
+      "@type": "Event",
+      "position": index + 1,
+      "name": engagement.title,
+      "description": engagement.description,
+      "startDate": engagement.date,
+      "location": {
+        "@type": "Place",
+        "name": engagement.location
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": engagement.event
+      },
+      "performer": {
+        "@type": "Person",
+        "name": "Oliver Wainaina"
+      }
+    }))
+  };
+
   return (
-    <div className="min-h-screen bg-[#f8f7f3] text-black font-['Times New Roman']">
+    <>
+      <Head>
+        <title>Media & Speaking Engagements | Oliver Wainaina</title>
+        <meta name="description" content="Explore Oliver Wainaina's speaking engagements, presentations, and video content showcasing technology solutions, design thinking, and innovation insights." />
+        <meta name="keywords" content="tech speaker, design thinking, AI hackathon, maternal health technology, digital policy, youth leadership, speaking engagements, tech conference" />
+        <link rel="canonical" href="https://oliversolomon.dev/media" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(speakingEngagementsStructuredData) }}
+        />
+      </Head>
+      <div className="min-h-screen bg-[#f8f7f3] text-black font-['Times New Roman']">
       {/* Navigation */}
       <nav
         className={`flex justify-between items-center py-6 px-4 md:px-10 sticky top-0 z-50 bg-[#f8f7f3]/80 backdrop-blur-sm transition-transform duration-300 ${
@@ -655,7 +694,8 @@ export default function MediaPage() {
           </p>
         </div>
       </footer>
-    </div>
+      </div>
+    </>
   );
 }
 

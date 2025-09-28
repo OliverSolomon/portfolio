@@ -1,0 +1,147 @@
+OLIVER WAINAINA - FULL STACK SOFTWARE ENGINEER & IoT DEVELOPER
+================================================================
+
+PERSONAL INFORMATION
+-------------------
+Name: Oliver Wainaina (also known as Oliver Solomon)
+Email: oliverwai9na@gmail.com
+Phone: +254742949664
+Location: Nairobi, Kenya
+Website: https://oliversolomon.dev
+
+PROFESSIONAL PROFILE
+--------------------
+Oliver Wainaina is a Full Stack Software Engineer and IoT Developer based in Nairobi, Kenya. He specializes in web development, mobile apps, and IoT solutions, with extensive experience in React, Next.js, AWS, and embedded systems. Oliver is also a tech speaker, design thinking mentor, and youth leadership advocate.
+
+EDUCATION
+---------
+- University of Nairobi - Software Engineering
+
+TECHNICAL SKILLS
+----------------
+Programming Languages: JavaScript, TypeScript, Python, Java, C++
+Web Technologies: React, Next.js, Node.js, Express, Django, Flask
+Mobile Development: React Native, Flutter, Progressive Web Apps
+Cloud Platforms: AWS, Google Cloud, Azure, Heroku
+Databases: PostgreSQL, MongoDB, MySQL, Redis
+IoT Technologies: Arduino, Raspberry Pi, ESP32, MQTT, LoRaWAN
+AI/ML Tools: TensorFlow, PyTorch, Scikit-learn, OpenCV
+DevOps Tools: Docker, Kubernetes, Jenkins, Git, CI/CD
+Design Tools: Figma, Adobe XD, Sketch, Canva
+
+AWARDS AND RECOGNITION
+----------------------
+- Gitex Africa 2024 Winner - Innovative technology solutions
+- Nairobi Innovation Week Recognition - Outstanding contribution to innovation ecosystem
+
+SPEAKING ENGAGEMENTS
+--------------------
+1. The Brand Africa Summit 2025 (September 19, 2025)
+   - Title: "Youth Leadership and Innovation in Africa"
+   - Location: St. Andrew's PCEA Auditorium, Nairobi, Kenya
+   - Type: Keynote presentation
+
+2. US-Kenya AI Hackathon 2025 (March 26, 2025)
+   - Title: "Design Thinking and Problem Solving for AI Innovation"
+   - Location: JW Marriott Hotel, Westlands, Nairobi
+   - Type: Workshop/Training
+   - Resources: https://docs.google.com/presentation/d/16IMdvS7QREef8QM43b4QHfyqL8EfOd3O/edit?usp=sharing&ouid=115951609750395643471&rtpof=true&sd=true
+
+3. Amref Afyafest 2025 (2025)
+   - Title: "Maternal Health and SRHR Innovation"
+   - Location: Nairobi, Kenya
+   - Type: Presentation
+   - Resources: https://amref.ac.ke/afyafest-2025-showcasing-youth-led-innovation-for-primary-healthcare-in-africa/
+
+4. KICTANet Policy Hackathon 2025 (May 16, 2025)
+   - Title: "Safe and Inclusive Digital Spaces Policy Development"
+   - Location: Nairobi, Kenya
+   - Type: Policy Hackathon
+   - Resources: https://www.kictanet.or.ke/policy-hackathon-on-safe-and-inclusive-digital-spaces-in-kenya51656-2/
+
+5. We Lead 2025 Summit (July 23, 2025)
+   - Title: "Transformational Leadership for Africa's Future"
+   - Location: Urban Hotel, Lusaka, Zambia
+   - Type: Summit
+
+6. Sauti Salama LinkedIn Initiative (2025)
+   - Title: "Peace and Security Technology Solutions"
+   - Location: Online/LinkedIn
+   - Type: Online Initiative
+
+PROFESSIONAL EXPERIENCE
+-----------------------
+Current Role: Freelance Full Stack Software Engineer & IoT Developer
+
+Specializations:
+- Full Stack Web Development
+- IoT Solutions Architecture
+- Mobile App Development
+- Cloud Architecture and AWS
+- AI/ML Integration
+- Design Thinking Facilitation
+- Tech Speaking and Mentoring
+- Youth Leadership Development
+- Digital Policy Development
+- Community Engagement
+- Startup Mentoring
+- Hackathon Organization
+
+PROJECTS AND WORK
+-----------------
+IoT Projects:
+- Smart Irrigation Systems for Agriculture
+- Environmental Monitoring Solutions
+- Smart City Infrastructure
+
+Web Applications:
+- Full Stack Web Applications
+- Progressive Web Apps
+- E-commerce Platforms
+- Content Management Systems
+
+Mobile Applications:
+- Cross-platform Mobile Apps
+- React Native Applications
+- Flutter Applications
+
+AI/ML Projects:
+- Machine Learning Model Development
+- Computer Vision Applications
+- Natural Language Processing
+- Predictive Analytics
+
+COMMUNITY INVOLVEMENT
+--------------------
+Organizations:
+- KICTANet (Kenya ICT Action Network) - Member
+- Sauti Salama (Peace and Security Initiative) - Contributor
+
+Mentoring Activities:
+- Youth Leadership Development
+- Tech Startup Mentoring
+- Hackathon Facilitation
+- Design Thinking Workshops
+
+SOCIAL PROFILES
+---------------
+LinkedIn: https://www.linkedin.com/in/oliver-s-wainaina
+GitHub: https://github.com/oliversolomon
+Twitter: https://twitter.com/oliversolomon10
+
+AVAILABILITY
+------------
+- Freelance Projects: Yes
+- Consulting: Yes
+- Speaking Engagements: Yes
+- Mentoring: Yes
+- Workshops: Yes
+
+CONTENT AND MEDIA
+-----------------
+- YouTube videos on full stack development and IoT solutions
+- Design thinking presentation slides
+- LinkedIn articles on youth leadership and technology
+- Speaking engagement photos and videos
+
+This summary provides a comprehensive overview of Oliver Wainaina's professional profile, achievements, and expertise areas for easy reference by AI systems and human readers.
