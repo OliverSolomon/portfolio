@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Head from "next/head";
+import Image from "next/image";
 
 // Type definitions
 interface MediaItem {
@@ -392,9 +393,11 @@ export default function MediaPage() {
                     <div className="w-16 h-1 bg-amber-400 mb-6"></div>
                     
                     <div className="aspect-video w-full overflow-hidden rounded-lg mb-4">
-                      <img
+                      <Image
                         src={engagement.image}
                         alt={engagement.title}
+                        width={400}
+                        height={225}
                         className="w-full h-full object-cover object-center"
                         style={{ objectPosition: 'center top' }}
                       />
@@ -425,7 +428,7 @@ export default function MediaPage() {
               </h2>
               <p className="text-base sm:text-lg text-gray-700 max-w-2xl mx-auto px-4">
                 Interested in having me speak at your event, conference, or workshop? 
-                I'd love to hear about your opportunity and discuss how I can contribute.
+                I&apos;d love to hear about your opportunity and discuss how I can contribute.
               </p>
             </div>
             
@@ -504,8 +507,8 @@ export default function MediaPage() {
                 <div className="text-center">
                   <h3 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Ready to Collaborate?</h3>
                   <p className="text-sm sm:text-base text-gray-700 mb-4 sm:mb-6 px-4">
-                    Whether it's a keynote, workshop, panel discussion, or mentoring session, 
-                    I'm excited to share insights and inspire your audience.
+                    Whether it&apos;s a keynote, workshop, panel discussion, or mentoring session, 
+                    I&apos;m excited to share insights and inspire your audience.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-sm sm:max-w-none mx-auto">
                     <a
@@ -686,9 +689,11 @@ export default function MediaPage() {
                       </a>
                     </div>
                   ) : (
-                    <img
+                    <Image
                       src={selectedEngagement.media[activeMediaIndex].url}
-                      alt={selectedEngagement.media[activeMediaIndex].alt}
+                      alt={selectedEngagement.media[activeMediaIndex].alt || selectedEngagement.title}
+                      width={600}
+                      height={400}
                       className="w-full h-full object-contain"
                     />
                   )}
@@ -775,7 +780,7 @@ export default function MediaPage() {
               className="underline"
             >
               LinkedIn
-            </a>{" "}
+            </a>
             |
             <a
               href="https://github.com/oliversolomon"

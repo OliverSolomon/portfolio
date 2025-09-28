@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 interface QRCodeModalProps {
   isOpen: boolean;
@@ -39,9 +40,11 @@ export default function QRCodeModal({ isOpen, onClose }: QRCodeModalProps) {
           {qrCodeUrl && (
             <div className="flex flex-col items-center space-y-4">
               <div className="bg-white p-4 rounded-lg shadow-md">
-                <img 
+                <Image 
                   src={qrCodeUrl} 
                   alt="QR Code for Oliver Wainaina's Contact" 
+                  width={192}
+                  height={192}
                   className="w-48 h-48"
                 />
               </div>

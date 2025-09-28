@@ -174,9 +174,6 @@ export default function Home() {
 
 
 
-  // Email and phone details
-  const emailAddress = "oliverwai9na@gmail.com";
-  const phoneNumber = "+254742949664";
 
   // Function to handle navbar item click
   const handleNavClick = (section: string) => {
