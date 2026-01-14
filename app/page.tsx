@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import QRCodeModal from "./components/QRCodeModal";
@@ -125,6 +125,10 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [qrModalOpen, setQrModalOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [selectedTalk, setSelectedTalk] = useState<{ title: string; description: string; images: string[] } | null>(null);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -140,8 +144,9 @@ export default function Home() {
         "home",
         "about",
         "skills",
-        "projects",
         "experience",
+        "talks",
+        "projects",
         "awards",
         "community",
         "featured",
@@ -180,6 +185,156 @@ export default function Home() {
     setActiveSection(section);
     closeMobileMenu();
   };
+
+  // Talks data
+  const talks = [
+    {
+      title: "Stars of Innovation U.S. Kenya AI Challenge",
+      description: `I had the incredible honor of training startup founders for the Stars of Innovation U.S. Kenya AI Challenge, hosted by the US Embassy Kenya.
+
+I guided participants through Design Thinking integrated with AI tools. Drawing from my experience as a solutions builder for Non-Profits I emphasized the importance of empathy mapping and co-creating with the users since they are the first source of evidence.
+
+Some of the outstanding solutions included maternal health systems designed to support mothers and track pregnancies, Agricultural solutions to prevent food waste, and financial solutions to track creditworthiness. 
+
+I am deeply proud of this mission by the department of state and look forward to continue the collaboration with American Spaces to pus the boundaries of technology in the greater sub-Saharan region.`,
+      images: [
+        "/media/US-Kenya AI Hackathon/stars-of-innovation.png",
+        "/media/US-Kenya AI Hackathon/Answering-Questions.jpg",
+        "/media/US-Kenya AI Hackathon/panel.jpg",
+        "/media/US-Kenya AI Hackathon/teaching.jpg",
+        "/media/US-Kenya AI Hackathon/Poster.jpg",
+      ],
+    },
+    {
+      title: "DevFest 2025",
+      description: `One of my standout moments for 2025 was the opportunity to speak at Google DevFest hashtag#Nairobi alongside Winnie Mandela. We spent our session diving deep into Building Technology for Social Impact, moving beyond just writing code to understanding the human responsibility behind it.
+
+The reality is that "Digital-First" thinking is often flawed. Outside of platforms like M-Pesa, very few homegrown apps truly penetrate the daily lives of Kenyans. This led us to a critical takeaway: we must build People-First solutions that are later automated and scaled by digital tools, rather than the other way around.
+
+Key Insights from the Session:
+The Principle of Co-creation: We emphasized that if the person the solution is meant for isn't in the room during the design process, the solution is effectively against them.
+Empathy-Driven Design: At Sauti Salama, we use "Survivor Cafe" sessions to ensure our features are built on real feedback and safe spaces, not just assumptions.
+Privacy by Design: Privacy shouldn't be a legal footnote. For vulnerable communities, it is a foundational safety requirement.
+Practical Impact: We hosted a live session using Firebase Studio to redesign and test an anonymous reporting feature. It was rewarding to see developers, many of whom come from a for-profit background, engage with the complexities of data privacy and tech policies surrounding violence.
+
+The questions from the audience were a highlight - ranging from concerns about re-traumatisation to how we effectively refer survivors to professionals. At its core, Sauti Salama functions like a simplified "Uber" model, connecting survivors to the essential legal, medical, shelters and psychosocial help they need.
+
+It was inspiring to see the developer community so eager to tackle these challenges. Thank you to the organizers for a platform that celebrates tech with a purpose.`,
+      images: [
+        "/media/DevFest 2025/0J0A0549(1).jpg",
+        "/media/DevFest 2025/0J0A0551(1).jpg",
+        "/media/DevFest 2025/Devfest 1.jpg",
+        "/media/DevFest 2025/devfest.jpeg",
+        "/media/DevFest 2025/madii.jpeg",
+        "/media/DevFest 2025/Mandela & I.jpeg",
+      ],
+    },
+    {
+      title: "The Brand Africa Summit",
+      description: `A few months ago, I had the opportunity to join a panel at The Brand Africa Summit to discuss the intersection of AI and technology in business. The conversation was a necessary dive into how these tools are reshaping both our creative and ethical landscapes.
+
+One of the most profound shifts we explored is how AI has democratized creation. In the same way the internet made information accessible to all, AI has dismantled many of the traditional gatekeepers of production and storytelling.
+
+Key Points from the Discussion:
+1. Lowering the Barrier to Entry: For brands and independent creators, the cost and technical skills previously required for high-level production have dropped significantly. This allows emerging African brands to compete on a globally polished level from day one, making storytelling more about the clarity of the vision than the size of the budget.
+2. The Evolution of Branding: As AI tools make high-quality visuals and content more accessible, the true value of a brand shifts toward authenticity, cultural relevance, and a strong ethical backbone.
+3. The Dark Side of Innovation: As Technical Lead at Sauti Salama, I highlighted the rise of Technology-Facilitated Gender-Based Violence (TFGBV), where AI-generated imagery is being misused for bullying and harassment. This reality demands urgent attention as these tools scale.
+4. Freedom of Speech vs. Digital Harm: We unpacked the tension between protecting expression and preventing digital harm. Innovation should never be an excuse for compromising human dignity or safety.
+5. Homegrown LLMs vs. Bias Correction: We discussed whether Africa should build its own models from scratch or focus on retraining existing global models so they accurately reflect African languages, contexts, and data. Both paths seek to correct bias embedded in current systems.
+6. The Need for Guardrails: The panel agreed on the importance of robust AI policies that protect the most vulnerable while still enabling creativity and innovation. We also acknowledged the risk of over-regulating too early, in ways that could be used to suppress progress rather than steward it.
+
+Connecting with such impactful organizations at the summit reinforced a simple truth: technology must be a tool for empowerment. As we lower barriers to entry, we also have a responsibility to raise our standards for digital safety and ethical use.`,
+      images: [
+        "/media/The Brand Africa Summit/Poster.jpg",
+        "/media/The Brand Africa Summit/Close-Up.jpg",
+        "/media/The Brand Africa Summit/In-Depth-Explanation.jpg",
+        "/media/The Brand Africa Summit/Highlight.jpg",
+        "/media/The Brand Africa Summit/final.jpg",
+      ],
+    },
+    {
+      title: "Safe and Inclusive Digital Spaces Policy Development",
+      description:
+        "A policy hackathon focused on building responses for safer digital environments — addressing technology-facilitated GBV, data protection, and content moderation challenges.",
+      images: [
+        "/media/Kictanet Hackathon/whole-team.jpg",
+        "/media/Kictanet Hackathon/small-group-closeup.jpg",
+      ],
+    },
+  ];
+
+  const openTalkModal = useCallback((talk: typeof talks[0]) => {
+    setSelectedTalk(talk);
+    setActiveImageIndex(0);
+  }, []);
+
+  const closeTalkModal = useCallback(() => {
+    setSelectedTalk(null);
+    setActiveImageIndex(0);
+  }, []);
+
+  const nextImage = useCallback(() => {
+    if (selectedTalk) {
+      setActiveImageIndex((prev) => (prev + 1) % selectedTalk.images.length);
+    }
+  }, [selectedTalk]);
+
+  const prevImage = useCallback(() => {
+    if (selectedTalk) {
+      setActiveImageIndex((prev) => (prev === 0 ? selectedTalk.images.length - 1 : prev - 1));
+    }
+  }, [selectedTalk]);
+
+  // Swipe handlers
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      nextImage();
+    }
+    if (isRightSwipe) {
+      prevImage();
+    }
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (!selectedTalk) return;
+      if (e.key === "ArrowLeft") prevImage();
+      if (e.key === "ArrowRight") nextImage();
+      if (e.key === "Escape") closeTalkModal();
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+    return () => window.removeEventListener("keydown", handleKeyPress);
+  }, [selectedTalk, prevImage, nextImage, closeTalkModal]);
+
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    if (selectedTalk) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedTalk]);
 
   return (
     <div className="min-h-screen bg-[#f8f7f3] text-black font-['Times New Roman'] snap-y snap-mandatory overflow-y-scroll h-screen">
@@ -239,6 +394,15 @@ export default function Home() {
             onClick={() => handleNavClick("experience")}
           >
             Experience
+          </Link>
+          <Link
+            href="#talks"
+            className={`font-medium text-sm font-['Times New Roman'] ${
+              activeSection === "talks" ? "text-amber-600 font-bold" : ""
+            }`}
+            onClick={() => handleNavClick("talks")}
+          >
+            Talks
           </Link>
           <Link
             href="#awards"
@@ -383,6 +547,15 @@ export default function Home() {
             onClick={() => handleNavClick("experience")}
           >
             Experience
+          </Link>
+          <Link
+            href="#talks"
+            className={`font-medium text-2xl font-['Times New Roman'] hover:text-amber-400 transition-colors ${
+              activeSection === "talks" ? "text-amber-400" : ""
+            }`}
+            onClick={() => handleNavClick("talks")}
+          >
+            Talks
           </Link>
           <Link
             href="#awards"
@@ -1131,7 +1304,7 @@ export default function Home() {
                       Iron Gate Technologies
                     </h3>
                     <p className="text-base md:text-lg font-['Times New Roman']">
-                      Full Stack Developer | 2023 - Present
+                      Full Stack Developer | 2023 - December 2025
                     </p>
                   </div>
                   <div className="mt-4 md:mt-0">
@@ -1301,6 +1474,78 @@ export default function Home() {
                 </a>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Talks and Panel Discussions Section */}
+      <section
+        className="pt-16 md:pt-25 pb-40 md:pb-60 px-4 md:px-6 bg-gradient-to-br from-[#f9f4e8] to-[#f5efe0] min-h-screen snap-start"
+        id="talks"
+      >
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-5xl md:text-8xl font-bold mb-10 md:mb-16 font-['Times New Roman'] opacity-90 overflow-hidden text-black">
+            talks <span className="text-amber-500">.</span> talks{" "}
+            <span className="text-amber-500">.</span> talks{" "}
+            <span className="text-amber-500">.</span>
+          </h2>
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-10">
+            {talks.map((talk, index) => (
+              <div
+                key={index}
+                className="group relative cursor-pointer"
+                onClick={() => openTalkModal(talk)}
+              >
+                <div className="bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px]">
+                  <div className="relative h-64 w-full">
+                    <Image
+                      src={talk.images[0]}
+                      alt={`${talk.title} talk`}
+                      fill
+                      style={{ objectFit: "cover" }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end">
+                      <div className="p-6">
+                        <span className="text-amber-400 font-mono text-sm">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                        <h3 className="text-2xl md:text-3xl font-bold italic font-['Times New Roman'] text-white mb-1">
+                          {talk.title}
+                        </h3>
+                        <p className="text-white/80 text-xs md:text-sm font-['Times New Roman']">
+                          Talks & Panel Discussions
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="p-6">
+                    <p className="font-['Times New Roman'] text-gray-700 mb-4 line-clamp-4">
+                      {talk.description.split("\n")[0]}
+                    </p>
+
+                    <div className="flex justify-between items-center">
+                      <span className="text-xs text-gray-500 font-['Times New Roman']">
+                        {talk.images.length} photos
+                      </span>
+                      <span className="px-4 py-2 border border-black rounded-full text-sm font-['Times New Roman'] hover:bg-black hover:text-white transition-colors">
+                        View Talk
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 flex justify-center">
+            <Link
+              href="/media"
+              className="px-6 md:px-8 py-3 md:py-4 bg-black text-white rounded-full text-base md:text-lg font-['Times New Roman'] hover:bg-amber-600 transition-colors text-center"
+            >
+              See more talks →
+            </Link>
           </div>
         </div>
       </section>
@@ -1758,6 +2003,9 @@ export default function Home() {
             >
               Experience
             </Link>
+            <Link href="#talks" className="text-sm font-['Times New Roman']">
+              Talks
+            </Link>
             <Link href="#awards" className="text-sm font-['Times New Roman']">
               Awards
             </Link>
@@ -1794,6 +2042,194 @@ export default function Home() {
           </p>
         </div>
       </footer>
+
+      {/* Talks Modal */}
+      {selectedTalk && (
+        <div
+          className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-2 sm:p-4 overflow-hidden"
+          onClick={closeTalkModal}
+        >
+          <div
+            className="bg-white rounded-lg w-[95%] sm:w-[90%] max-w-6xl h-[95vh] sm:h-[90vh] flex flex-col overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={closeTalkModal}
+              className="absolute top-4 right-4 z-10 bg-black/20 hover:bg-black/40 text-white rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center transition-colors"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+
+            {/* Content Container */}
+            <div className="flex flex-col md:flex-row h-full overflow-hidden">
+              {/* Left Side - Images */}
+              <div className="w-full md:w-1/2 p-4 sm:p-6 flex flex-col bg-gray-900">
+                <h3 className="text-xl sm:text-2xl font-bold italic font-['Times New Roman'] mb-4 text-white">
+                  {selectedTalk.title}
+                </h3>
+
+                <div
+                  className="flex-1 relative group"
+                  onTouchStart={onTouchStart}
+                  onTouchMove={onTouchMove}
+                  onTouchEnd={onTouchEnd}
+                >
+                  <div className="w-full h-full min-h-[300px] sm:min-h-[400px] flex items-center justify-center rounded-lg bg-gray-800 overflow-hidden relative">
+                    {/* Navigation Buttons */}
+                    {selectedTalk.images.length > 1 && (
+                      <>
+                        {/* Previous Button */}
+                        <button
+                          onClick={prevImage}
+                          className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-all duration-200 backdrop-blur-sm opacity-0 group-hover:opacity-100 hover:scale-110"
+                          aria-label="Previous image"
+                        >
+                          <svg
+                            className="w-5 h-5 sm:w-6 sm:h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M15 19l-7-7 7-7"
+                            />
+                          </svg>
+                        </button>
+
+                        {/* Next Button */}
+                        <button
+                          onClick={nextImage}
+                          className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-all duration-200 backdrop-blur-sm opacity-0 group-hover:opacity-100 hover:scale-110"
+                          aria-label="Next image"
+                        >
+                          <svg
+                            className="w-5 h-5 sm:w-6 sm:h-6"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M9 5l7 7-7 7"
+                            />
+                          </svg>
+                        </button>
+
+                        {/* Image Indicators */}
+                        <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
+                          {selectedTalk.images.map((_, index) => (
+                            <button
+                              key={index}
+                              onClick={() => setActiveImageIndex(index)}
+                              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-200 ${
+                                index === activeImageIndex
+                                  ? "bg-amber-400 scale-125"
+                                  : "bg-white/60 hover:bg-white/80"
+                              }`}
+                              aria-label={`Go to image ${index + 1}`}
+                            />
+                          ))}
+                        </div>
+                      </>
+                    )}
+
+                    {/* Current Image */}
+                    <Image
+                      src={selectedTalk.images[activeImageIndex]}
+                      alt={`${selectedTalk.title} - Image ${activeImageIndex + 1}`}
+                      width={800}
+                      height={600}
+                      className="w-full h-full object-contain"
+                      priority
+                    />
+                  </div>
+
+                  {/* Image Counter */}
+                  {selectedTalk.images.length > 1 && (
+                    <div className="mt-2 text-center text-white/60 text-sm">
+                      {activeImageIndex + 1} / {selectedTalk.images.length}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Right Side - Description */}
+              <div className="w-full md:w-1/2 p-4 sm:p-6 bg-gray-50 overflow-y-auto">
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="text-lg sm:text-xl font-semibold text-black mb-4">
+                      About This Talk
+                    </h4>
+                    <div className="prose prose-sm max-w-none">
+                      {selectedTalk.description.split("\n").map((paragraph, idx) => {
+                        if (paragraph.trim() === "") return null;
+                        // Check if it's a bullet point (starts with specific patterns)
+                        if (
+                          paragraph.trim().startsWith("Key Insights") ||
+                          paragraph.trim().startsWith("The Principle") ||
+                          paragraph.trim().startsWith("Empathy-Driven") ||
+                          paragraph.trim().startsWith("Privacy by Design") ||
+                          paragraph.trim().startsWith("Practical Impact") ||
+                          paragraph.trim().startsWith("The questions") ||
+                          paragraph.trim().startsWith("It was inspiring")
+                        ) {
+                          return (
+                            <p
+                              key={idx}
+                              className="text-sm sm:text-base text-black/80 mb-3 font-['Times New Roman']"
+                            >
+                              {paragraph.trim()}
+                            </p>
+                          );
+                        }
+                        return (
+                          <p
+                            key={idx}
+                            className="text-sm sm:text-base text-black/80 mb-3 font-['Times New Roman']"
+                          >
+                            {paragraph.trim()}
+                          </p>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* See the Impact Button */}
+                  <div className="mt-6 pt-6 border-t border-gray-200">
+                    <a
+                      href="https://www.linkedin.com/in/oliver-s-wainaina/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-lg transition-colors font-semibold text-sm sm:text-base"
+                    >
+                      <FaLinkedin size={20} />
+                      See the impact
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* QR Code Modal */}
       <QRCodeModal isOpen={qrModalOpen} onClose={() => setQrModalOpen(false)} />

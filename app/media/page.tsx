@@ -717,21 +717,35 @@ export default function MediaPage() {
             <div className="w-full sm:w-1/2 p-4 sm:p-6 bg-gray-50 overflow-y-auto">
               <div className="space-y-6">
                 <div>
-                  <h4 className="text-base sm:text-lg font-semibold text-black mb-2">Event Details</h4>
+                  <h4 className="text-base sm:text-lg font-semibold text-black mb-2">
+                    Event Details
+                  </h4>
                   <div className="space-y-1 text-xs sm:text-sm text-black/70">
-                    <p><strong>Event:</strong> {selectedEngagement.event}</p>
-                    <p><strong>Date:</strong> {selectedEngagement.date}</p>
-                    <p><strong>Location:</strong> {selectedEngagement.location}</p>
+                    <p>
+                      <strong>Event:</strong> {selectedEngagement.event}
+                    </p>
+                    <p>
+                      <strong>Date:</strong> {selectedEngagement.date}
+                    </p>
+                    <p>
+                      <strong>Location:</strong> {selectedEngagement.location}
+                    </p>
                   </div>
                 </div>
 
                 <div>
-                  <h4 className="text-base sm:text-lg font-semibold text-black mb-2">Description</h4>
-                  <p className="text-xs sm:text-sm text-black/80">{selectedEngagement.description}</p>
+                  <h4 className="text-base sm:text-lg font-semibold text-black mb-2">
+                    Description
+                  </h4>
+                  <p className="text-xs sm:text-sm text-black/80 whitespace-pre-line">
+                    {selectedEngagement.description}
+                  </p>
                 </div>
 
                 <div>
-                  <h4 className="text-base sm:text-lg font-semibold text-black mb-2">Key Takeaways</h4>
+                  <h4 className="text-base sm:text-lg font-semibold text-black mb-2">
+                    Key Takeaways
+                  </h4>
                   <ul className="space-y-2 text-xs sm:text-sm text-black/80">
                     {selectedEngagement.takeaways.map((takeaway: string, index: number) => (
                       <li key={index} className="flex items-start">
@@ -740,6 +754,17 @@ export default function MediaPage() {
                       </li>
                     ))}
                   </ul>
+                </div>
+
+                <div className="pt-4">
+                  <a
+                    href="https://www.linkedin.com/in/oliver-s-wainaina"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-amber-600 hover:bg-amber-700 text-white text-xs sm:text-sm font-semibold transition-colors"
+                  >
+                    See the impact
+                  </a>
                 </div>
               </div>
             </div>
