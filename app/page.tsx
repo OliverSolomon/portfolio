@@ -627,8 +627,7 @@ Connecting with such impactful organizations at the summit reinforced a simple t
             engineer
           </h1>
           <p className="mt-8 max-w-md text-left md:text-right font-['Times New Roman']">
-            Highly motivated and skilled Software Developer with a passion for
-            using technology to solve real-world problems.
+          A visionary multidisciplinary engineer building high-impact, human-centered solutions at the intersection of hardware, software, and community empowerment.
           </p>
 
           <p className="mt-2 mb-10 max-w-md text-left md:text-right font-['Times New Roman']">
